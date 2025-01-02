@@ -3,8 +3,7 @@ import { slugify } from '@/utilities/formatters'
 import { access } from '@/access'
 
 const readAccess: Access = async ({ req }) => {
-  if (access.admin.collection()({ req })) return true
-  if (access.manager.collection()({ req })) return false
+  if (access.adminOrManager.collection()({ req })) return true
 
   return {
     isActive: {
